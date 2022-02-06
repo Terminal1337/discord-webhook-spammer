@@ -1,9 +1,18 @@
+import os
 import sys
 from random import choice
 import httpx
 import requests
 from colorama import Fore,init
 init(convert=True)
+
+def cls():
+    linux = "clear"
+    windows = "cls"
+    os.system([linux,windows][os.name=="nt"])
+
+cls()
+
 print(Fore.GREEN+"""
 ╭╮╭╮╭┳━━━┳━━╮╭╮╱╭┳━━━┳━━━┳╮╭━╮╭━━━┳━━━┳━━━┳━╮╭━┳━╮╭━┳━━━┳━━━╮
 ┃┃┃┃┃┃╭━━┫╭╮┃┃┃╱┃┃╭━╮┃╭━╮┃┃┃╭╯┃╭━╮┃╭━╮┃╭━╮┃┃╰╯┃┃┃╰╯┃┃╭━━┫╭━╮┃
@@ -28,14 +37,14 @@ def proxy_spam():
         if req.status_code == 204:
             print(Fore.GREEN+"Message Sent Successfully")
         else:
-            print(Fore.WHITE+"Bad proxies or webhook")
+            print(Fore.WHITE+"Bad proxies or webhook or ratelimited")
             sys.exit()
 def proxyless_spam():
         req = httpx.post(webhook, json={'content': msg})
         if req.status_code == 204:
             print(Fore.GREEN+"Message Sent Successfully")
         else:
-            print(Fore.WHITE+"Bad proxies or webhook")
+            print(Fore.WHITE+"Bad proxies or webhook or ratelimited")
             sys.exit()
 
 support = input(Fore.LIGHTYELLOW_EX+"Do you want to enable proxy mode?(Y/n): ")
