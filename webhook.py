@@ -37,14 +37,14 @@ def proxy_spam():
             print(Fore.GREEN+"Message Sent Successfully")
         else:
             print(Fore.WHITE+"Bad proxies or webhook or ratelimited")
-            sys.exit()
+            
 def proxyless_spam():
         req = httpx.post(webhook, json={'content': msg})
         if req.status_code == 204:
             print(Fore.GREEN+"Message Sent Successfully")
         else:
             print(Fore.WHITE+"Bad proxies or webhook or ratelimited")
-            sys.exit()
+            
 
 support = input(Fore.LIGHTYELLOW_EX+"Do you want to enable proxy mode?(Y/n): ")
 
