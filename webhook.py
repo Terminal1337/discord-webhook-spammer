@@ -2,7 +2,6 @@ import os
 import sys
 from random import choice
 import httpx
-import requests
 from colorama import Fore,init
 init(convert=True)
 
